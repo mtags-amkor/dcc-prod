@@ -1,0 +1,71 @@
+version: '3.8'
+services:
+  dcc-web:
+    image: amkormtags001/dcc-web:${env.BUILD_NUMBER}
+    container_name: dcc-web
+    volumes:
+      - ./app/dcc-web:/var/www/html
+      - /var/www/html/node_modules
+
+    ports:
+      - ${DCC_WEB_PORT}:${DCC_WEB_PORT}
+      
+  user-management:
+    image: amkormtags001/dcc-user-management:${env.BUILD_NUMBER}
+    container_name: user-management
+    volumes:
+      - ./app/user-management:/var/www/html
+      - /var/www/html/node_modules
+    ports:
+      - ${UM_PORT}:${UM_PORT}
+
+
+  dcc-atk:
+    image: amkormtags001/dcc-atk:${env.BUILD_NUMBER}
+    container_name: dcc-atk
+    volumes:
+      - ./app/dcc-atk:/var/www/html
+      - /var/www/html/node_modules
+    ports:
+      - ${DCC_ATK_PORT}:${DCC_ATK_PORT}
+
+  
+  dcc-atm:
+    image: amkormtags001/dcc-atm:${env.BUILD_NUMBER}
+    container_name: dcc-atm
+    volumes:
+      - ./app/dcc-atm:/var/www/html
+      - /var/www/html/node_modules
+    ports:
+      - ${DCC_ATM_PORT}:${DCC_ATM_PORT}
+
+
+  dcc-atc:
+    image: amkormtags001/dcc-atc:${env.BUILD_NUMBER}
+    container_name: dcc-atc
+    volumes:
+      - ./app/dcc-atc:/var/www/html
+      - /var/www/html/node_modules
+    ports:
+      - ${DCC_ATC_PORT}:${DCC_ATC_PORT}
+
+
+  dcc-cron-link:
+    image: amkormtags001/dcc-cron-link:${env.BUILD_NUMBER}
+    container_name: dcc-cron-link
+    volumes:
+      - ./app/dcc-cron-link:/var/www/html
+      - /var/www/html/node_modules
+    ports:
+      - ${DCC_CRON_LINK_PORT}:${DCC_CRON_LINK_PORT}
+  
+  mongodb:
+    container_name: mongodb
+    image: mongo:3.6.4
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodata:
