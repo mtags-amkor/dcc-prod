@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   dcc-web:
-    image: amkormtags001/dcc-web:${env.BUILD_NUMBER}
+    image: amkormtags001/dcc-web:${BUILD_NUMBER}
     container_name: dcc-web
     volumes:
       - ./app/dcc-web:/var/www/html
@@ -11,7 +11,7 @@ services:
       - ${DCC_WEB_PORT}:${DCC_WEB_PORT}
       
   user-management:
-    image: amkormtags001/dcc-user-management:${env.BUILD_NUMBER}
+    image: amkormtags001/dcc-user-management:${BUILD_NUMBER}
     container_name: user-management
     volumes:
       - ./app/user-management:/var/www/html
@@ -21,7 +21,7 @@ services:
 
 
   dcc-atk:
-    image: amkormtags001/dcc-atk:${env.BUILD_NUMBER}
+    image: amkormtags001/dcc-atk:${BUILD_NUMBER}
     container_name: dcc-atk
     volumes:
       - ./app/dcc-atk:/var/www/html
@@ -31,7 +31,7 @@ services:
 
   
   dcc-atm:
-    image: amkormtags001/dcc-atm:${env.BUILD_NUMBER}
+    image: amkormtags001/dcc-atm:${BUILD_NUMBER}
     container_name: dcc-atm
     volumes:
       - ./app/dcc-atm:/var/www/html
@@ -41,7 +41,7 @@ services:
 
 
   dcc-atc:
-    image: amkormtags001/dcc-atc:${env.BUILD_NUMBER}
+    image: amkormtags001/dcc-atc:${BUILD_NUMBER}
     container_name: dcc-atc
     volumes:
       - ./app/dcc-atc:/var/www/html
@@ -51,7 +51,7 @@ services:
 
 
   dcc-cron-link:
-    image: amkormtags001/dcc-cron-link:${env.BUILD_NUMBER}
+    image: amkormtags001/dcc-cron-link:${BUILD_NUMBER}
     container_name: dcc-cron-link
     volumes:
       - ./app/dcc-cron-link:/var/www/html
